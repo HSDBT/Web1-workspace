@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link type="text/css" rel="styleSheet"  href="1.css" />
+</head>
+<body>	
+	<div id="topbx">
+		<img id="topimg" src="images/a15.png">
+		<div id="topp">
+			<p id="p1">[温馨提示]最近有不少不法分子在网上骗人，请大家注意！！！</p>
+			</div>
+	</div>
+	<div id="bx">
+		<div id="igbx">
+			<div class="imga"><img src="images/b5.png"></div>
+			<div class="imga"><img src="images/b1.png"></div>
+			<div class="imga"><img src="images/b2.png"></div>
+			<div class="imga"><img src="images/b3.png"></div>
+			<div class="imga"><img src="images/b4.png"></div>
+			<div class="imga"><img src="images/b5.png"></div>
+			<div class="imga"><img src="images/b1.png"></div>
+		</div>
+		<span id="l"><</span>
+		<span id="r">></span>
+		<ul id="xu">
+			<li class="fv">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		</div>
+	</div>
+</body>
+<script src="js/animate.js"></script>
+<script type="text/javascript">
+	var p1 = document.getElementById("p1");
+	var topp = document.getElementById("topp");
+	var bx = document.getElementById("bx");
+	var l = document.getElementById("l");
+	var r = document.getElementById("r");
+	var igbx = document.getElementById("igbx");
+	var i=1;
+	var m=76;
+	var xulist = document.getElementById("xu").children;
+	setInterval(function(){
+		m--;
+		animate(p1,{left:6*m},function(){
+			if(m==-138){	
+				console.log("dsd");			
+				p1.style.left ="444px";
+				m=76;	
+			}
+			});				
+		},200);
+	function xt(){
+		i++;
+		chan();
+		if(i==6){
+			animate(igbx,{left:-1200*i},function(){
+				igbx.style.left ="-1200px";
+				i=1;
+			});				
+		}
+		else{
+			animate(igbx,{left:(-1200)*i});
+		}
+	}
+	function ft(){
+		i--;
+		chan();
+		if(i==0){
+			animate(igbx,{left:(-1200)*i},function(){
+					igbx.style.left ="-6000px";
+					i=5;	
+			});
+		}
+		else{
+			animate(igbx,{left:(-1200)*i});
+		}
+	}
+	var t = setInterval(xt,3000);
+	bx.onmouseover = function(){
+		animate(l,{opacity:50})
+		animate(r,{opacity:50})
+		clearInterval(t);
+	}
+	bx.onmouseout = function(){
+		animate(l,{opacity:0})
+		animate(r,{opacity:0})
+		t = setInterval(xt,3000);
+	}	
+	r.onclick = xt;
+	l.onclick = ft;
+	for(var j = 0;j < xulist.length;j++){
+		xulist[j].ix = j;
+		xulist[j].onclick=function(){
+			i=this.ix+1;
+			chan();
+			animate(igbx,{left:-1200*i});
+		}
+	}
+	function chan(){
+		xulist[0].className = "fv";
+		for(var j=1;j<xulist.length;j++){
+			xulist[j].className = "";
+		}
+		if(i==6){
+			xulist[0].className = "five";
+		}
+		else if(i==0){
+			xulist[4].className = "five";
+		}
+		else{
+			xulist[i-1].className = "five";
+		}
+	}
+</script>
+</html>
