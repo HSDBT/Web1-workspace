@@ -1,0 +1,118 @@
+*{
+    padding: 0;
+  margin: 0;
+}
+ul,li{
+    list-style: none;
+}
+a:visited {
+    color: white;
+}
+
+nav{
+  width: 1200px;
+  height: 50px;
+  background-color: red;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+nav>ul>li{
+  width: 250px;
+  height:40px;
+  color: #fff;
+  float: left;
+  margin-right: 30px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+}
+
+#outside{
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+.box{
+        width: 1200px;
+        height: 500px;
+        border:1px solid red;
+        margin: 10px auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .slider{
+        width: 8400px;
+        position: absolute;
+        left: -1200px;
+    }
+    .slide{
+        width: 1200px;
+        float: left;
+        z-index: 1;
+    }
+    .box>span{
+        display: block;
+        width: 30px;
+        height: 50px;
+        text-align: center;
+        cursor: pointer;
+        top: 175px;
+        line-height: 50px;
+        background: rgb(255,0,0);
+        font-size: 30px;
+        position: absolute;
+        opacity: 0;
+    }
+    #left{
+        left: 3px;
+    }
+    #right{
+        right: 30px;
+    }
+    .nav{
+        position: absolute;
+        left: 500px;
+        bottom: 20px;
+    }
+    .nav>li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin: 0 10px;
+        border-radius: 50%;
+    }
+    .nav .active{
+        background: red;
+    }
+  #bg{
+      width: 450px;
+      height: 40px;
+      position: relative;
+      top: 10px;
+      color:red;
+  }
+  #box2{
+        height:40px;
+        margin: auto;
+        position: relative;
+        background-image: url(images/a15.png);
+        background-repeat:no-repeat;
+        background-position:2% 50%;
+    }
+    #box3{
+        height: 40px;
+        width: 1200px;
+        margin: auto;
+        overflow: hidden;
+    }
+  a{
+      text-decoration: none;
+      color: white;
+   }
