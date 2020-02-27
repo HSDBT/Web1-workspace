@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>武汉加油</title>
+	<link type="text/css" rel="styleSheet"  href="1.css" />
+</head>
+<body>
+	<div id="head1">
+		<p></p>
+	</div>
+	<div id="top">
+		<div id="plate1">
+			<div id="bx">
+				<div id="igbx">
+					<div class="imga"><img src="images/b5.jpg"></div>
+					<div class="imga"><img src="images/b1.jpg"></div>
+					<div class="imga"><img src="images/b2.jpg"></div>
+					<div class="imga"><img src="images/x3.jpg"></div>
+					<div class="imga"><img src="images/b4.jpg"></div>
+					<div class="imga"><img src="images/b5.jpg"></div>
+					<div class="imga"><img src="images/b1.jpg"></div>
+				</div>
+				<ul id="xu">
+					<li><a href="">口罩带法</a></li>
+					<li><a href="">来源</a></li>
+					<li><a href="">侥幸不可</a></li>
+					<li><a href="">致敬</a></li>
+					<li><a href="">不信谣</a></li>
+				</ul>
+			</div>
+			<div id="paih1">
+				<h2>排行榜</h2>
+			</div>
+			<div id="paih3">
+				<p id="no1">NO.1</p>
+				<a href="https://ncov.dxy.cn/ncovh5/view/pneumonia?from=singlemessage&isappinstalled=0"><h3 id="noname">丁香医生</h3></a>
+				<img src="images/1.png">
+			</div>		
+			<ul id="paih2">
+				<li><a href="https://jingyan.baidu.com/article/f54ae2fc46c8061e93b84950.html">2&nbsp&nbsp口罩带法</a></li>
+				<li><a href="https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&lid=8bd65269000a4676&ie=utf-8&rsv_pq=8bd65269000a4676&wd=%E5%A4%AE%E8%A7%86%E6%96%B0%E9%97%BB1%2B1&rsv_spt=5&rsv_t=7238lAWJAbPdTVYAnlmSu6WuhEZc1YX98jXaDQELh6BbGrRMaIob%2F8JgZLc&rsv_bp=1&f=8">3&nbsp&nbsp新闻1+1</a></li>
+				<li><a href="https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&lid=fb658671000a5d87&ie=utf-8&rsv_pq=fb658671000a5d87&wd=%E9%92%9F%E5%8D%97%E5%B1%B1%E7%9B%B8%E7%AE%A1%E8%A7%86%E9%A2%91&rsv_spt=5&rsv_t=a629cN3WRiN3INkcvr4NX3hLlwJyag0brHZPARVraQ4UCbTp0%2BvcjAHcavs&rsv_bp=1&f=8">4&nbsp&nbsp钟南山视频</a></li>
+			</ul>	
+		</div>
+		<div id="plate3">
+			<p>推荐了解</p>
+			<ul>
+				<li>
+					<img src="images/x1.png">
+					<a href="https://baike.baidu.com/item/%E9%92%9F%E5%8D%97%E5%B1%B1/653914?fr=aladdin">钟南山介绍</a>
+				</li>
+
+				<li>
+					<img src="images/x2.png">
+					<a href="https://www.sohu.com/a/374682755_178984">蝙蝠？病毒？</a>
+				</li>				
+				<li>
+					<img src="images/x3.png">
+					<a href="https://jingyan.baidu.com/article/375c8e1973760a64f2a229a8.html">捐款助力武汉</a>
+				</li>
+				<li>
+					<img src="images/x4.png">
+					<a href="https://jingyan.baidu.com/article/20b68a880dd932386dec6206.html">居家预防</a>
+				</li>
+				<li>
+					<img src="images/x5.png">
+					<a href="https://baijiahao.baidu.com/s?id=1658134326696474633&wfr=spider&for=pc">阻止人畜共患病</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script src="js/animate.js"></script>
+<script type="text/javascript">
+	var bookimg =document.getElementsByClassName("bookimg");
+	var img1List =document.getElementsByClassName("img1");
+	var intervalId1,intervalId2,intervalId3,intervalId4,intervalId5,intervalId6;
+	var bx = document.getElementById("bx");
+	var igbx = document.getElementById("igbx");
+	var i=1;
+	var xulist = document.getElementById("xu").children;
+	var ismoving = false;
+	//轮播图
+	function xt(){
+		if(ismoving==true){
+			return;
+		}
+		ismoving = true;
+		i++;
+		chan(); 
+		if(i==6){
+			animate(igbx,{left:-840*i},function(){
+				igbx.style.left ="-840px";
+				i=1;
+				ismoving=false;
+			});		
+		}
+		else{
+			animate(igbx,{left:(-840)*i},function(){
+				ismoving=false;				
+			});
+		}
+	}
+	var t = setInterval(xt,3000);
+	bx.onmouseover = function(){
+		clearInterval(t);
+	}
+	bx.onmouseout = function(){
+		t = setInterval(xt,3000);
+	}	
+	for(var j = 0;j < xulist.length;j++){
+		xulist[j].ix = j;
+		xulist[j].onmouseover=function(){
+			i=this.ix+1;
+			chan();
+			animate(igbx,{left:(-840)*i},function(){
+				ismoving=false;				
+			});
+		}
+	}
+	function chan(){
+		for(var j=0;j<xulist.length;j++){
+			xulist[j].style.background = "black";
+			xulist[j].style.opacity = 0.4;
+		}
+		if(i==6){
+			xulist[0].style.background = "#ff3955";
+			xulist[0].style.opacity = 1;
+
+		}
+		else if(i==0){
+			xulist[4].style.background = "#ff3955";
+			xulist[4].style.opacity = 1;
+
+		}
+		else{
+			console.log(i-1);
+			xulist[i-1].style.background = "#ff3955";         //错误
+			xulist[i-1].style.opacity = 1;
+
+		}
+	}
+</script>
+</html>
+
+
